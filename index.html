@@ -20,7 +20,17 @@
         .feature-card { background: var(--card); padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
         .feature-card h3 { margin-top: 0; color: #1e293b; }
 
-        footer { background-color: #0f172a; color: #f8fafc; padding: 40px 20px; text-align: center; margin-top: auto; }
+        /* New styles for the TikTok Integration section */
+        .integration-section { background: var(--card); padding: 32px 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-top: 48px; text-align: left; }
+        .integration-section h2 { margin-top: 0; color: #0f172a; font-size: 1.8rem; }
+        .integration-section ol { line-height: 1.8; margin: 20px 0; padding-left: 24px; }
+        .integration-section li { margin-bottom: 8px; }
+        .integration-section .disclaimer { font-size: 0.9rem; color: #64748b; font-style: italic; border-left: 3px solid #cbd5e1; padding-left: 12px; margin-top: 24px; }
+        .video-container { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 24px; }
+        .video-container h3 { color: #1e293b; margin-top: 0; margin-bottom: 16px; }
+        .demo-video { width: 100%; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); background-color: #0f172a; }
+
+        footer { background-color: #0f172a; color: #f8fafc; padding: 40px 20px; text-align: center; margin-top: 60px; }
         .footer-links { margin-top: 16px; }
         .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 12px; font-size: 0.95rem; transition: color 0.2s; }
         .footer-links a:hover { color: #ffffff; }
@@ -50,6 +60,31 @@
                 <p>The software opens secure OAuth windows in your local browser to authenticate with platforms. API tokens are managed securely by the local client, keeping you in full control.</p>
             </div>
         </div>
+
+        <div class="integration-section">
+            <h2>How TikTok Integration Works</h2>
+            <p>AiroseUploader integrates directly with TikTok using the official TikTok for Developers APIs. Here is the exact user flow:</p>
+            
+            <ol>
+                <li>The user clicks <strong>“Login with TikTok”</strong> inside the desktop application.</li>
+                <li>A secure browser window opens prompting the user for TikTok OAuth authorization.</li>
+                <li>After approval, the user is authenticated and securely returned to the local app.</li>
+                <li>The user selects a video file entirely from their local computer hard drive.</li>
+                <li>The app uploads the video file directly to TikTok using the <strong>Content Posting API</strong> (push_by_file method).</li>
+                <li>The video is successfully published to the user’s TikTok account.</li>
+            </ol>
+            
+            <p class="disclaimer">Note: All actions are initiated manually by the user. The application does not automate posting, scrape data, or manage multiple accounts.</p>
+
+            <div class="video-container">
+                <h3>See it in Action (Sandbox Demo)</h3>
+                <video class="demo-video" controls>
+                    <source src="tiktok-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
     </main>
 
     <footer>
