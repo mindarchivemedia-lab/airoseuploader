@@ -1,32 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authenticating AiroseUploader...</title>
-    <style>
-        body { font-family: system-ui, -apple-system, sans-serif; text-align: center; margin-top: 100px; color: #334155; background-color: #f8fafc; }
-        .spinner { border: 4px solid #e2e8f0; border-top: 4px solid #2563eb; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
-    <script>
-        window.onload = function() {
-            // Grab the authorization code and state that TikTok attaches to the URL
-            const urlParams = window.location.search;
-            
-            // Redirect them to the local server your desktop app is running
-            // NOTE: Change "8080" if your local app listens on a different port!
-            const localAppUrl = "http://127.0.0.1:8080/callback" + urlParams;
-            
-            // Send the user back to the desktop app
-            window.location.href = localAppUrl;
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TikTok OAuth Callback | AiroseUploader</title>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --success:#16a34a;
+    --bg:#f8fafc;
+    --text:#334155;
+    --card:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+header{
+    background:#fff;
+    padding:20px 40px;
+    box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+
+.logo{
+    text-decoration:none;
+    font-size:1.5rem;
+    color:#0f172a;
+    font-weight:bold;
+}
+
+main{
+    max-width:800px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:35px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.success{
+    width:80px;
+    height:80px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:var(--success);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+}
+
+h1{
+    text-align:center;
+    color:#0f172a;
+}
+
+.status{
+    text-align:center;
+    font-size:18px;
+    color:#475569;
+    margin-bottom:30px;
+}
+
+.info{
+    background:#f8fafc;
+    border-left:4px solid var(--primary);
+    padding:18px;
+    border-radius:6px;
+    margin-top:25px;
+}
+
+.flow{
+    margin-top:30px;
+}
+
+.flow h3{
+    margin-bottom:15px;
+}
+
+.flow ol{
+    line-height:1.9;
+}
+
+.buttons{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:35px;
+}
+
+.button{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.primary{
+    background:#000;
+    color:#fff;
+}
+
+.secondary{
+    border:2px solid #000;
+    color:#000;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#64748b;
+}
+</style>
+
 </head>
+
 <body>
-    <div class="spinner"></div>
-    <h2>Login Successful!</h2>
-    <p>Sending you back to AiroseUploader...</p>
-    <p style="font-size: 0.9em; color: #64748b; margin-top: 30px;">You can close this window once the app responds.</p>
+
+<header>
+<a class="logo" href="index.html">
+AiroseUploader
+</a>
+</header>
+
+<main>
+
+<div class="card">
+
+<div class="success">
+✓
+</div>
+
+<h1>OAuth Callback Endpoint</h1>
+
+<p class="status">
+This page represents the registered OAuth callback URL used by
+AiroseUploader during the TikTok authentication process.
+</p>
+
+<div class="info">
+
+<strong>Desktop Application Notice</strong>
+
+<p>
+AiroseUploader is a Windows desktop application.
+After the user authorizes access on TikTok's official OAuth page,
+TikTok redirects the browser to this callback URL.
+The desktop application then completes the authentication process
+and securely associates the authorization with the user's local session.
+</p>
+
+<p>
+This page is provided to demonstrate the registered callback endpoint
+used during TikTok App Review.
+</p>
+
+</div>
+
+<div class="flow">
+
+<h3>OAuth Flow</h3>
+
+<ol>
+
+<li>User clicks <strong>Login with TikTok</strong> inside AiroseUploader.</li>
+
+<li>The desktop application opens the user's default browser.</li>
+
+<li>The user authenticates on TikTok's official OAuth page.</li>
+
+<li>TikTok redirects to this registered callback URL.</li>
+
+<li>The desktop application receives the authorization result.</li>
+
+<li>The user may now upload videos using the official TikTok Content Posting API.</li>
+
+</ol>
+
+</div>
+
+<div class="buttons">
+
+<a class="button primary" href="index.html">
+Return to Homepage
+</a>
+
+<a class="button secondary" href="login-demo.html">
+View Login Flow
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+© 2026 Mind Archive Lab
+
+</footer>
+
 </body>
 </html>
